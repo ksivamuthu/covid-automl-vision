@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.center {
+  text-align: center;
+}
+
+video {
+  max-height: 350px;
+}

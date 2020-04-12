@@ -6,7 +6,6 @@ function fromB64(str: string) {
     return Buffer.from(str, 'base64').toString();
 }
 const GCLOUD_CREDENTIALS = fromB64(process.env.GCLOUD_CREDENTIALS || '')
-console.log(GCLOUD_CREDENTIALS);
 const storage = new Storage({ projectId: process.env.PROJECT_ID, credentials: JSON.parse(GCLOUD_CREDENTIALS) });
 const bucketName = process.env.BUCKET_NAME || '';
 
@@ -31,7 +30,7 @@ export default (request: NowRequest, response: NowResponse) => {
     });
     bufferStream.pipe(writeStream)
         .on('error', (err) => {
-            response.status(500).end();
+            response.status(500).send(err).end();
         })
         .on('finish', () => {
             response.status(201).end();
