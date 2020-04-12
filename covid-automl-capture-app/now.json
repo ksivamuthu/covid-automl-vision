@@ -1,0 +1,7 @@
+{
+    "env": {
+        "PROJECT_ID": "@project-id",
+        "GCLOUD_CREDENTIALS": "@gcloud-credentials",
+        "BUCKET_NAME": "@bucket-name"
+    }
+}
